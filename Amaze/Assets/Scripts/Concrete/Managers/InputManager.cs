@@ -45,6 +45,7 @@ namespace Concrete.Managers
                 var absVertical = Mathf.InverseLerp(0,1920,Mathf.Abs(verticalDrag));
                 if (absHorizontal > absVertical)
                 {
+                    // Horizontal
                     if (absHorizontal ! > deadZone) return;
 
                     if (horizontalDrag > 0)
@@ -55,6 +56,7 @@ namespace Concrete.Managers
                 }
                 else if(absHorizontal < absVertical)
                 {
+                    // Vertical
                     if (absVertical ! > deadZone) return;
 
                     if (verticalDrag > 0)
@@ -63,7 +65,7 @@ namespace Concrete.Managers
                         GameControl.OnInputType?.Invoke(InputType.Down);
                     _isDragging = false;
                 }
-                _initialMousePosition = currentMousePosition; // Başlangıç pozisyonu güncellenir
+                _initialMousePosition = currentMousePosition; // Return The beginning mouse position
             }
         }
     }
