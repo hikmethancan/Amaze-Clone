@@ -14,7 +14,6 @@ namespace Concrete.Cells
 
         private void Awake()
         {
-            meshRenderer = GetComponent<MeshRenderer>();
             if (cellSettings.cellType == CellType.Obstacle)
                 meshRenderer.material.color = cellSettings.cellObstacleColor;
         }
