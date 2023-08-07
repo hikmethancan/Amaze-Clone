@@ -1,9 +1,15 @@
 using System;
+using Abstract.Base_Template.enums;
 
 namespace Abstract.Base_Template
 {
     public static class GameControl
     {
+        #region Input
+
+        public static Action<InputType> OnInputType;
+
+        #endregion
         #region Game
 
         public static Action OnFirstTouch;

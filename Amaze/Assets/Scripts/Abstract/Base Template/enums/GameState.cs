@@ -1,4 +1,4 @@
-namespace Abstract.Base_Template
+namespace Abstract.Base_Template.enums
 {
     public enum GameState 
     {
