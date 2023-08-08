@@ -1,26 +1,31 @@
 ﻿using System;
 using Abstract.Enums;
 using Abstract.Interfaces;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Concrete.Cells
 {
     public class Cell : MonoBehaviour, IInteractable
     {
+        public int x;
+        public int y;
+        
         [Header("References")] [SerializeField]
         private SkinnedMeshRenderer meshRenderer;
 
-        public CellSettings cellSettings;
+        [TableList] public CellSettings cellSettings;
 
         // public Cell Right => 
         public Cell Left { get; set; }
         public Cell Up { get; set; }
         public Cell Down { get; set; }
         public bool IsInteracted { get; set; }
+        
 
-        private void Awake()
+        private void Start()
         {
-            ChangeColor();
+            CellSetup();
         }
 
         private void OnValidate()
@@ -44,9 +49,10 @@ namespace Concrete.Cells
 
         private void ChangeColor()
         {
-            meshRenderer.sharedMaterial.color = cellSettings.cellType == CellType.Obstacle
-                ? cellSettings.cellObstacleColor
-                : cellSettings.cellFloorColor;
+            if (cellSettings.cellType == CellType.Obstacle)
+                meshRenderer.material.color = cellSettings.cellObstacleColor;
+            else
+                meshRenderer.material.color = cellSettings.cellFloorColor;
         }
 
         private void ChangePositionForType()
