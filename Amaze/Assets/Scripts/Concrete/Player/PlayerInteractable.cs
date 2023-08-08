@@ -1,4 +1,5 @@
-﻿using Abstract.Enums;
+﻿using System;
+using Abstract.Enums;
 using Abstract.Interfaces;
 using UnityEngine;
 
@@ -9,9 +10,10 @@ namespace Concrete.Player
         [Header("References")] 
         [SerializeField] private PlayerMovement playerMovement;
         
-        private void OnTriggerEnter(Collider other)
+
+        private void OnCollisionEnter(Collision other)
         {
-            if (other.TryGetComponent(out IInteractable interactable))
+            if (other.collider.TryGetComponent(out IInteractable interactable))
             {
                 if (interactable.GetCellType() == CellType.Obstacle)
                 {
