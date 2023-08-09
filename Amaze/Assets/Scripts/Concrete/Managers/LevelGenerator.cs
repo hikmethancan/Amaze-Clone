@@ -92,16 +92,18 @@ namespace Concrete.Managers
             // **** That's why i didnt use this method.
 
             /*
-             for (int x = 0; x < cells.GetLength(0); x++)
+            
+             */
+            LoadCellData();
+            for (int x = 0; x < _cells.GetLength(0); x++)
             {
-                for (int y = 0; y < cells.GetLength(1); y++)
+                for (int y = 0; y < _cells.GetLength(1); y++)
                 {
-                    Debug.Log(cells[x, y]);
-                    if (cells[x, y] is not null && cells[x, y].gameObject.activeInHierarchy)
-                        DestroyImmediate(cells[x, y].gameObject);
+                    Debug.Log(_cells[x, y]);
+                    if (_cells[x, y] is not null && _cells[x, y].gameObject.activeInHierarchy)
+                        DestroyImmediate(_cells[x, y].gameObject);
                 }
             }
-             */
         }
 
         private void DestroyUsingChild()

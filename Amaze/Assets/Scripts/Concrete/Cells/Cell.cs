@@ -36,8 +36,8 @@ namespace Concrete.Cells
 
         private void OnValidate()
         {
-            if(!gameObject.activeInHierarchy) return;
-            CellSetup();
+            // if(!gameObject.activeInHierarchy) return;
+            // CellSetup();
             // StartCoroutine(ColorChanger());
         }
         public void Interact()
@@ -92,6 +92,7 @@ namespace Concrete.Cells
         }
         public void CellSetup()
         {
+            meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
             BaseColor();
             ChangePositionForType();
         }

@@ -4,6 +4,6 @@ namespace Concrete.Managers
 {
     public class LevelManager : Singleton<LevelManager>
     {
-       
+        
     }
 }
