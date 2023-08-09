@@ -9,20 +9,16 @@ namespace Concrete.Player
     {
         [Header("References")] 
         [SerializeField] private PlayerMovement playerMovement;
-        
 
-        private void OnCollisionEnter(Collision other)
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.collider.TryGetComponent(out IInteractable interactable))
+            if (other.TryGetComponent(out IInteractable interactable))
             {
-                if (interactable.GetCellType() == CellType.Obstacle)
-                {
-                    playerMovement.IsMoving = false;
-                    Debug.Log("sdasda");
-                }
-                else
+                if (interactable.GetCellType() == CellType.Floor)
                 {
                     interactable.Interact();
+                    Debug.Log("Floor");
                 }
             }
         }

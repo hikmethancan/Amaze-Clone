@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3406497248423807633}
   - component: {fileID: 9048023309650758228}
   - component: {fileID: 8638568016043512981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,10 +70,13 @@ MonoBehaviour:
   x: 0
   y: 0
   meshRenderer: {fileID: 6556169150582748914}
+  cellCollider: {fileID: 9048023309650758228}
   cellSettings:
     cellType: 0
-    cellFloorColor: {r: 0, g: 0, b: 0, a: 0}
+    cellFloorColor: {r: 0.3335901, g: 0.18178178, b: 0.8962264, a: 0}
     cellObstacleColor: {r: 0.9622642, g: 0.10275395, b: 0.05900679, a: 0}
+    cellBaseObstacleColor: {r: 0.9607843, g: 0.101960786, b: 0.05882353, a: 0}
+    cellBaseFloorColor: {r: 0.4433962, g: 0.4413047, b: 0.4413047, a: 0}
 --- !u!1001 &3473138083185545257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,13 +137,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8309052594284367528, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6446297749608950447, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5870079643302434958, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5751059193546426987, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4985877607413683325, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2267034019055899250, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -1526964690268444965, guid: 6a516045127517340a496171ef531ea1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: -516098083770646512, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6a516045127517340a496171ef531ea1, type: 3}
       propertyPath: m_Name
       value: uploads_files_624509_CubeRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508593647059713167, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649723811881938931, guid: 6a516045127517340a496171ef531ea1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 6a516045127517340a496171ef531ea1, type: 3}
       propertyPath: m_LocalPosition.y

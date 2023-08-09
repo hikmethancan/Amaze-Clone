@@ -40,6 +40,7 @@ MonoBehaviour:
     - MoreMountains.Feedbacks.MMTools
     - MoreMountains.NiceVibrations.Haptics
     - MoreMountains.Feedbacks.TextMeshPro
+    - Assembly-CSharp-firstpass
     - MoreMountains.Tools.Feedbacks
     - MoreMountains.NiceVibrations.Editor
     - MoreMountains.Feel.Demos.HDRP

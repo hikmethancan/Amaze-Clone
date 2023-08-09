@@ -10,6 +10,8 @@ namespace Concrete.Cells
         public CellType cellType;
         public Color cellFloorColor;
         public Color cellObstacleColor;
+        public Color cellBaseObstacleColor;
+        public Color cellBaseFloorColor;
         
     }
 }

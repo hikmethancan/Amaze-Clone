@@ -10,18 +10,17 @@ namespace Concrete.Cells
     {
         public int x;
         public int y;
-        
-        [Header("References")] [SerializeField]
-        private SkinnedMeshRenderer meshRenderer;
+
+        [Header("References")] 
+        [SerializeField] private SkinnedMeshRenderer meshRenderer;
 
         [TableList] public CellSettings cellSettings;
 
-        // public Cell Right => 
         public Cell Left { get; set; }
         public Cell Up { get; set; }
         public Cell Down { get; set; }
         public bool IsInteracted { get; set; }
-        
+
 
         private void Start()
         {
@@ -47,11 +46,23 @@ namespace Concrete.Cells
             return cellSettings.cellType;
         }
 
-        private void ChangeColor()
+        private void BaseColor()
         {
             if (cellSettings.cellType == CellType.Obstacle)
-                meshRenderer.material.color = cellSettings.cellObstacleColor;
+                meshRenderer.material.color = cellSettings.cellBaseObstacleColor;
             else
+                meshRenderer.material.color = cellSettings.cellBaseFloorColor;
+        }
+        private void ChangeLayer()
+        {
+            Debug.Log(Enum.GetName(typeof(CellType),cellSettings.cellType));
+            int layerIgnoreRaycast = LayerMask.NameToLayer(Enum.GetName(typeof(CellType),cellSettings.cellType));
+            gameObject.layer = layerIgnoreRaycast;
+        }
+
+        private void ChangeColor()
+        {
+            if (cellSettings.cellType == CellType.Floor)
                 meshRenderer.material.color = cellSettings.cellFloorColor;
         }
 
@@ -63,11 +74,11 @@ namespace Concrete.Cells
             else
                 transform.position = new Vector3(pos.x, pos.y, 0f);
         }
-
         public void CellSetup()
         {
-            ChangeColor();
+            BaseColor();
             ChangePositionForType();
+            ChangeLayer();
         }
     }
 }
