@@ -7,21 +7,23 @@ using UnityEngine;
 namespace Concrete.Managers
 {
     [ExecuteInEditMode]
-    public class Level : MonoBehaviour
+    public class LevelGenerator : MonoBehaviour
     {
-        [TableList, ShowInInspector] private Cell[,] cells;
+        [ShowInInspector] private Cell[,] _cells;
 
         [SerializeField] private Cell cellPrefab;
         [SerializeField] private int cellRow;
         [SerializeField] private int cellCol;
-
+        
         [Button]
         public void CreateCells()
         {
             DeleteCells();
-            cells = new Cell[cellRow, cellCol];
-            Debug.Log(cells.GetLength(0));
-            Debug.Log(cells.GetLength(1));
+            _cells = new Cell[cellRow, cellCol];
+            Debug.Log(_cells.GetLength(0));
+            
+            
+            Debug.Log(_cells.GetLength(1));
             for (int x = 0; x < cellRow; x++)
             {
                 for (int y = 0; y < cellCol; y++)
@@ -33,16 +35,16 @@ namespace Concrete.Managers
                     gridCell.y = y;
                     gridCell.CellSetup();
                     // Every border and edges have to be obstacle
-                    if (x < (cells.GetLength(0) - 1) && y == 0)
+                    if (x < (_cells.GetLength(0) - 1) && y == 0)
                         gridCell.cellSettings.cellType = CellType.Obstacle;
-                    if (y == (cells.GetLength(1) - 1) && x < cells.GetLength(0))
+                    if (y == (_cells.GetLength(1) - 1) && x < _cells.GetLength(0))
                         gridCell.cellSettings.cellType = CellType.Obstacle;
-                    if (x == (cells.GetLength(0) - 1) && y < cells.GetLength(1))
+                    if (x == (_cells.GetLength(0) - 1) && y < _cells.GetLength(1))
                         gridCell.cellSettings.cellType = CellType.Obstacle;
                     if (x == 0 || y == 0)
                         gridCell.cellSettings.cellType = CellType.Obstacle;
                     // Set the instantiated cell in cells[,] arrays position
-                    cells[x, y] = gridCell;
+                    _cells[x, y] = gridCell;
                 }
             }
         }
@@ -53,8 +55,8 @@ namespace Concrete.Managers
             DestroyUsingCellsArray();
             DestroyUsingChild();
 
-            if (cells is not null)
-                Array.Clear(cells, 0, cells.Length);
+            if (_cells is not null)
+                Array.Clear(_cells, 0, _cells.Length);
         }
 
         private void DestroyUsingCellsArray()
@@ -91,8 +93,8 @@ namespace Concrete.Managers
         [Button]
         public void SetupCells()
         {
-            if (cells is null) return;
-            foreach (var cell in cells)
+            if (_cells is null) return;
+            foreach (var cell in _cells)
             {
                 if (cell is not null)
                     cell.CellSetup();

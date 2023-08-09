@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Abstract.Enums;
 using Abstract.Interfaces;
 using Sirenix.OdinInspector;
@@ -21,6 +22,8 @@ namespace Concrete.Cells
         public Cell Down { get; set; }
         public bool IsInteracted { get; set; }
 
+        private Material _tempMaterial;
+
 
         private void Start()
         {
@@ -29,10 +32,11 @@ namespace Concrete.Cells
 
         private void OnValidate()
         {
+            if(!gameObject.activeInHierarchy) return;
             Debug.Log("Changed");
             CellSetup();
+            // StartCoroutine(ColorChanger());
         }
-
         public void Interact()
         {
             if (IsInteracted) return;
@@ -46,12 +50,20 @@ namespace Concrete.Cells
             return cellSettings.cellType;
         }
 
+        private IEnumerator ColorChanger()
+        {
+            yield return new WaitForSeconds(1f);
+            CellSetup();
+        }
+        
         private void BaseColor()
         {
+            _tempMaterial = new Material(meshRenderer.sharedMaterial);
             if (cellSettings.cellType == CellType.Obstacle)
-                meshRenderer.material.color = cellSettings.cellBaseObstacleColor;
+                _tempMaterial.color = cellSettings.cellBaseObstacleColor;
             else
-                meshRenderer.material.color = cellSettings.cellBaseFloorColor;
+                _tempMaterial.color = cellSettings.cellBaseFloorColor;
+            meshRenderer.material = _tempMaterial;
         }
         private void ChangeLayer()
         {
