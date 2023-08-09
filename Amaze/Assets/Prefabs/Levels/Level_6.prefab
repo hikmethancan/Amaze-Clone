@@ -10,8 +10,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3170794845140662774, guid: 3c0c07aa5f3e8cf4b87a440052d38134, type: 3}
       propertyPath: m_Name
-      value: Level
+      value: Level_6
       objectReference: {fileID: 0}
+    - target: {fileID: 3844856205023789836, guid: 3c0c07aa5f3e8cf4b87a440052d38134, type: 3}
+      propertyPath: levelSo
+      value: 
+      objectReference: {fileID: 11400000, guid: e3d1260d851525b41b80e9c8d7aaa22c, type: 2}
     - target: {fileID: 9049597995579394714, guid: 3c0c07aa5f3e8cf4b87a440052d38134, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

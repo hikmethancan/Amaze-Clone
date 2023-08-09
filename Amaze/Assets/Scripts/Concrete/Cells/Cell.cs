@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Concrete.Cells
 {
-    public class Cell : MonoBehaviour, IInteractable
+    public class Cell : SerializedMonoBehaviour, IInteractable
     {
         public int x;
         public int y;
 
-        [Header("References")] 
-        [SerializeField] private SkinnedMeshRenderer meshRenderer;
+        [Header("References")] [SerializeField]
+        private SkinnedMeshRenderer meshRenderer;
 
         [TableList] public CellSettings cellSettings;
 
@@ -36,10 +36,10 @@ namespace Concrete.Cells
 
         private void OnValidate()
         {
-            // if(!gameObject.activeInHierarchy) return;
-            // CellSetup();
-            // StartCoroutine(ColorChanger());
+            // if (!gameObject.activeInHierarchy) return;
+            // BaseColor();
         }
+
         public void Interact()
         {
             if (IsInteracted) return;
@@ -58,10 +58,10 @@ namespace Concrete.Cells
             yield return new WaitForSeconds(1f);
             CellSetup();
         }
-        
+
         private void BaseColor()
         {
-            if(meshRenderer.sharedMaterial is null) return;
+            if (meshRenderer.sharedMaterial is null) return;
             _tempMaterial = new Material(meshRenderer.sharedMaterial);
             if (cellSettings.cellType == CellType.Obstacle)
                 _tempMaterial.color = cellSettings.cellBaseObstacleColor;
@@ -69,10 +69,11 @@ namespace Concrete.Cells
                 _tempMaterial.color = cellSettings.cellBaseFloorColor;
             meshRenderer.material = _tempMaterial;
         }
+
         private void ChangeLayer()
         {
-            Debug.Log(Enum.GetName(typeof(CellType),cellSettings.cellType));
-            int layerIgnoreRaycast = LayerMask.NameToLayer(Enum.GetName(typeof(CellType),cellSettings.cellType));
+            Debug.Log(Enum.GetName(typeof(CellType), cellSettings.cellType));
+            int layerIgnoreRaycast = LayerMask.NameToLayer(Enum.GetName(typeof(CellType), cellSettings.cellType));
             gameObject.layer = layerIgnoreRaycast;
         }
 
@@ -90,6 +91,7 @@ namespace Concrete.Cells
             else
                 transform.position = new Vector3(pos.x, pos.y, 0f);
         }
+
         public void CellSetup()
         {
             meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();

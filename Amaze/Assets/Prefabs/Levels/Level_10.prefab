@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: cellRow
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3844856205023789836, guid: 3c0c07aa5f3e8cf4b87a440052d38134, type: 3}
+      propertyPath: levelSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 2534e739021bd1342b27625e1986e753, type: 2}
     - target: {fileID: 9049597995579394714, guid: 3c0c07aa5f3e8cf4b87a440052d38134, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
