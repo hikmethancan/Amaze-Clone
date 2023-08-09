@@ -2,6 +2,7 @@ using System;
 using Abstract.Enums;
 using Concrete.Cells;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace Concrete.Managers
@@ -14,16 +15,38 @@ namespace Concrete.Managers
         [SerializeField] private Cell cellPrefab;
         [SerializeField] private int cellRow;
         [SerializeField] private int cellCol;
-        
+
+        static void OnEditorModeStarted()
+        {
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredEditMode)
+            {
+                Debug.Log("edit mode");
+            }
+        }
+        private void Start()
+        {
+            SetupCells();
+        }
+
+        [Button]
+        public void LoadCellData()
+        {
+            var path = $"{gameObject.name}.es3";
+            if(_cells is null || _cells[0,0] is null)
+                if(ES3.FileExists(path))
+                    if (ES3.Load<Cell[,]>($"Cell{gameObject.name}",path) is not null)
+                        _cells = ES3.Load<Cell[,]>($"Cell{gameObject.name}",path);
+        }
         [Button]
         public void CreateCells()
         {
             DeleteCells();
             _cells = new Cell[cellRow, cellCol];
-            Debug.Log(_cells.GetLength(0));
-            
-            
-            Debug.Log(_cells.GetLength(1));
             for (int x = 0; x < cellRow; x++)
             {
                 for (int y = 0; y < cellCol; y++)
@@ -47,6 +70,9 @@ namespace Concrete.Managers
                     _cells[x, y] = gridCell;
                 }
             }
+            var o = gameObject;
+            var path = $"{o.name}.es3";
+            ES3.Save($"Cell{o.name}", _cells,path);
         }
 
         [Button]
@@ -64,7 +90,7 @@ namespace Concrete.Managers
             // **** Destroy with using cells[,] array. It cause that if we change script after the compile,
             // **** cell[,] array might give error but we have also child didnt destroyed yet.
             // **** That's why i didnt use this method.
-            
+
             /*
              for (int x = 0; x < cells.GetLength(0); x++)
             {

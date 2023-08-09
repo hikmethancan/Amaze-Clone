@@ -24,6 +24,10 @@ namespace Concrete.Cells
 
         private Material _tempMaterial;
 
+        private void Awake()
+        {
+            ChangeLayer();
+        }
 
         private void Start()
         {
@@ -33,7 +37,6 @@ namespace Concrete.Cells
         private void OnValidate()
         {
             if(!gameObject.activeInHierarchy) return;
-            Debug.Log("Changed");
             CellSetup();
             // StartCoroutine(ColorChanger());
         }
@@ -58,6 +61,7 @@ namespace Concrete.Cells
         
         private void BaseColor()
         {
+            if(meshRenderer.sharedMaterial is null) return;
             _tempMaterial = new Material(meshRenderer.sharedMaterial);
             if (cellSettings.cellType == CellType.Obstacle)
                 _tempMaterial.color = cellSettings.cellBaseObstacleColor;
@@ -90,7 +94,6 @@ namespace Concrete.Cells
         {
             BaseColor();
             ChangePositionForType();
-            ChangeLayer();
         }
     }
 }

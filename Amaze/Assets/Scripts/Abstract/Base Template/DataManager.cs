@@ -11,7 +11,7 @@ namespace Abstract.Base_Template
             ES3.Save(dataKey, dataToSave, path);
         }
 
-        public static T LoadData<T>(string key, int uniqueId, T def = default) where T : SavableEntity<T>
+        public static T LoadData<T>(string key, int uniqueId, T def = default)
         {
             var path = $"{key}_{uniqueId}.es3";
             if (!ES3.FileExists(path)) return def;

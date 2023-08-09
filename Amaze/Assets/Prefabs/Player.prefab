@@ -325,7 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5658712384644726582}
-  movementForce: 40
+  playerMoveDuration: 0.3
+  canMove: 0
 --- !u!114 &2982112270909055265
 MonoBehaviour:
   m_ObjectHideFlags: 0
