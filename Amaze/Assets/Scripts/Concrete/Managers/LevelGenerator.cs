@@ -1,4 +1,5 @@
 using System;
+using Abstract.Base_Template;
 using Abstract.Enums;
 using Concrete.Cells;
 using Sirenix.OdinInspector;
@@ -28,6 +29,12 @@ namespace Concrete.Managers
                 Debug.Log("edit mode");
             }
         }
+
+        private void OnEnable()
+        {
+            GameControl.OnNewLevelCamera?.Invoke(transform);
+        }
+
         private void Start()
         {
             SetupCells();

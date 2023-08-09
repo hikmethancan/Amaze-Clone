@@ -1,5 +1,6 @@
 using System;
 using Abstract.Base_Template.enums;
+using UnityEngine;
 
 namespace Abstract.Base_Template
 {
@@ -43,5 +44,6 @@ namespace Abstract.Base_Template
         #endregion
         
         public static Action<GameState> OnChangeGameState;
+        public static Action<Transform> OnNewLevelCamera;
     }
 }
