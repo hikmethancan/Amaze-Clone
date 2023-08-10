@@ -29,13 +29,11 @@ namespace Concrete.Managers
             GameControl.OnChangeGameState -= ChangeLevel;
             GameControl.OnCurrentFloors -= NewFloor;
         }
-
         private void NewFloor(List<FloorCel> obj)
         {
             _currentFloor = obj;
             LoadLevel(_currentLevel-1);
         }
-
         private void ChangeLevel(GameState state)
         {
             if(state != GameState.Success) return;
