@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6556169150582748914}
-  InteractedColor: {r: 0.9528302, g: 0.13932894, b: 0.9224745, a: 0}
+  interactedColor: {r: 0.7171066, g: 0.029903898, b: 0.9056604, a: 0}
 --- !u!1001 &3473138083185545257
 PrefabInstance:
   m_ObjectHideFlags: 0

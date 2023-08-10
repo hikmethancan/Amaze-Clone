@@ -37,18 +37,29 @@ namespace Concrete.Managers
         private void ChangeLevel(GameState state)
         {
             if(state != GameState.Success) return;
-            _currentLevel++;
-            ES3.Save("level", _currentLevel);
+            if (_currentLevel > levels.Count)
+            {
+                _currentLevel = 1;
+                ES3.Save("level",_currentLevel);
+            }
+            else
+            {
+                _currentLevel++;
+                ES3.Save("level", _currentLevel);    
+            }
             LoadLevel(_currentLevel - 1);
         }
         private void LoadLevel(int index)
         {
+            
             for (int i = 0; i < levels.Count; i++)
             {
                 if (i == index)
                 {
                     levels[i].gameObject.SetActive(true);
                     _currentFloor = levels[i].levelData.FloorCels;
+                    GameControl.OnNewLevelCamera?.Invoke(levels[i].transform);
+                    Debug.Log(levels[i].transform);
                 }
                 else
                     levels[i].gameObject.SetActive(false);

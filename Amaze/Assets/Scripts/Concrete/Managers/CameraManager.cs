@@ -1,20 +1,13 @@
-using System;
 using Abstract.Base_Template;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Concrete.Managers
 {
     public class CameraManager : MonoBehaviour
     {
-        public Transform targetObject; // Hedef objenin referansı
-        public float padding = 1.5f; 
-        
-        private Camera _camera;
-
-        private void Awake()
-        {
-            _camera = Camera.main;
-        }
+        public GameObject targetObject; // Hedef objenin referansı
+        public Camera mainCamera;
         private void OnEnable()
         {
             GameControl.OnNewLevelCamera += HandleCamera;
@@ -27,24 +20,58 @@ namespace Concrete.Managers
 
         private void HandleCamera(Transform levelTransform)
         {
-            targetObject = levelTransform;
-            CameraFollowerSetup();
+            targetObject = levelTransform.gameObject;
+            // CameraFollowerSetup();
+            SetCameraPos();
+            Debug.Log(levelTransform);
         }
-       // Kenarda biraz boşluk bırakmak için ekstra alan
 
-        private void CameraFollowerSetup()
+        [Button]
+        private void SetCameraPos()
         {
-            // Hedef objenin merkezini kameraya bakacak şekilde ayarla
-            Vector3 targetCenter = targetObject.position + (Vector3.up * padding); // Eğer objenin merkezi farklı bir yükseklikteyse düzeltme yapılabilir.
-            transform.LookAt(targetCenter);
+            Debug.Log("hiiads");
+            if (targetObject == null)
+            {
+                Debug.LogError("Target object is not assigned.");
+                return;
+            }
 
-            // Hedef objenin hepsini görünecek şekilde kameranın FOV'sunu ayarlar
-            float distanceToTarget = Vector3.Distance(targetObject.position, transform.position);
-            float halfFov = Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad;
-            float requiredDistance = Mathf.Abs(targetObject.localScale.z / (2f * Mathf.Tan(halfFov))) * padding;
-            float newFov = Mathf.Rad2Deg * (2f * Mathf.Atan(targetObject.localScale.z / (2f * requiredDistance)));
+            Bounds bounds = CalculateObjectBounds(targetObject);
+            
+            if (mainCamera != null)
+            {
+                float screenAspect = (float)Screen.width / (float)Screen.height;
+                float boundsHeight = bounds.size.y;
+                float boundsWidth = bounds.size.x;
 
-            Camera.main.fieldOfView = newFov;
+                float desiredOrthographicSize = boundsHeight / 2f;
+
+                if (screenAspect > 1f)
+                {
+                    desiredOrthographicSize /= screenAspect;
+                }
+
+                mainCamera.orthographicSize = desiredOrthographicSize;
+            }
+        }
+
+        private Bounds CalculateObjectBounds(GameObject obj)
+        {
+            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+
+            if (renderers.Length == 0)
+            {
+                return new Bounds(obj.transform.position, Vector3.zero);
+            }
+
+            Bounds bounds = renderers[0].bounds;
+
+            foreach (Renderer renderer in renderers)
+            {
+                bounds.Encapsulate(renderer.bounds);
+            }
+
+            return bounds;
         }
     }
 }

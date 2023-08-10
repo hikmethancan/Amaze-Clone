@@ -14,7 +14,6 @@ namespace Concrete.Player
             if (other.TryGetComponent(out IInteractable interactable))
             {
                 interactable.Interact();
-                Debug.Log("Floor");
             }
         }
     }

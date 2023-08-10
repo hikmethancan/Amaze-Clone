@@ -90,7 +90,6 @@ namespace Concrete.Player
             if (Physics.Raycast(transform.position, rayDirection.forward, out _hit, Mathf.Infinity, obstacleLayer))
             {
                 Debug.DrawRay(transform.position, rayDirection.forward, Color.yellow);
-                Debug.Log("Did Hit" + $"{rayDirection.gameObject.name}");
                 return true;
             }
 
