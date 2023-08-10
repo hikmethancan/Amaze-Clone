@@ -15,424 +15,192 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: cells
+    - Name: _cellBool
       Entry: 7
-      Data: 0|Concrete.Cells.Cell[,], Assembly-CSharp
+      Data: 0|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
-      Data: 100
+      Data: 49
     - Name: ranks
       Entry: 1
-      Data: 10|10
+      Data: 7|7
     - Name: 
-      Entry: 10
-      Data: 0
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 1
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 2
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 3
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 4
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 5
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 6
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 7
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 8
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 9
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 10
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 11
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 12
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 13
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 14
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 15
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 16
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 17
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 18
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 19
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 20
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 21
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 22
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 23
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 24
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 25
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 26
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 27
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 28
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 29
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 30
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 31
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 32
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 33
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 34
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 35
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 36
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 37
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 38
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 39
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 40
+      Entry: 5
+      Data: false
     - Name: 
-      Entry: 10
-      Data: 41
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 42
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 43
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 44
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 45
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 46
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 47
+      Entry: 5
+      Data: true
     - Name: 
-      Entry: 10
-      Data: 48
-    - Name: 
-      Entry: 10
-      Data: 49
-    - Name: 
-      Entry: 10
-      Data: 50
-    - Name: 
-      Entry: 10
-      Data: 51
-    - Name: 
-      Entry: 10
-      Data: 52
-    - Name: 
-      Entry: 10
-      Data: 53
-    - Name: 
-      Entry: 10
-      Data: 54
-    - Name: 
-      Entry: 10
-      Data: 55
-    - Name: 
-      Entry: 10
-      Data: 56
-    - Name: 
-      Entry: 10
-      Data: 57
-    - Name: 
-      Entry: 10
-      Data: 58
-    - Name: 
-      Entry: 10
-      Data: 59
-    - Name: 
-      Entry: 10
-      Data: 60
-    - Name: 
-      Entry: 10
-      Data: 61
-    - Name: 
-      Entry: 10
-      Data: 62
-    - Name: 
-      Entry: 10
-      Data: 63
-    - Name: 
-      Entry: 10
-      Data: 64
-    - Name: 
-      Entry: 10
-      Data: 65
-    - Name: 
-      Entry: 10
-      Data: 66
-    - Name: 
-      Entry: 10
-      Data: 67
-    - Name: 
-      Entry: 10
-      Data: 68
-    - Name: 
-      Entry: 10
-      Data: 69
-    - Name: 
-      Entry: 10
-      Data: 70
-    - Name: 
-      Entry: 10
-      Data: 71
-    - Name: 
-      Entry: 10
-      Data: 72
-    - Name: 
-      Entry: 10
-      Data: 73
-    - Name: 
-      Entry: 10
-      Data: 74
-    - Name: 
-      Entry: 10
-      Data: 75
-    - Name: 
-      Entry: 10
-      Data: 76
-    - Name: 
-      Entry: 10
-      Data: 77
-    - Name: 
-      Entry: 10
-      Data: 78
-    - Name: 
-      Entry: 10
-      Data: 79
-    - Name: 
-      Entry: 10
-      Data: 80
-    - Name: 
-      Entry: 10
-      Data: 81
-    - Name: 
-      Entry: 10
-      Data: 82
-    - Name: 
-      Entry: 10
-      Data: 83
-    - Name: 
-      Entry: 10
-      Data: 84
-    - Name: 
-      Entry: 10
-      Data: 85
-    - Name: 
-      Entry: 10
-      Data: 86
-    - Name: 
-      Entry: 10
-      Data: 87
-    - Name: 
-      Entry: 10
-      Data: 88
-    - Name: 
-      Entry: 10
-      Data: 89
-    - Name: 
-      Entry: 10
-      Data: 90
-    - Name: 
-      Entry: 10
-      Data: 91
-    - Name: 
-      Entry: 10
-      Data: 92
-    - Name: 
-      Entry: 10
-      Data: 93
-    - Name: 
-      Entry: 10
-      Data: 94
-    - Name: 
-      Entry: 10
-      Data: 95
-    - Name: 
-      Entry: 10
-      Data: 96
-    - Name: 
-      Entry: 10
-      Data: 97
-    - Name: 
-      Entry: 10
-      Data: 98
-    - Name: 
-      Entry: 10
-      Data: 99
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
+  FloorCels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  floorCell: {fileID: 6721381164344839359, guid: c2e6273859958794eacf36bda7a3e3bf, type: 3}
+  obstacleCell: {fileID: 6398393720627031604, guid: af27a9f9f0295db44b54ac48d9799ef8, type: 3}
+  cellRow: 7
+  cellCol: 7
+  allCellObjects: []

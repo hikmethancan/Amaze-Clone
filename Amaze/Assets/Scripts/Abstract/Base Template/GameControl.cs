@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Abstract.Base_Template.enums;
+using Concrete.Cells;
 using UnityEngine;
 
 namespace Abstract.Base_Template
@@ -45,5 +47,6 @@ namespace Abstract.Base_Template
         
         public static Action<GameState> OnChangeGameState;
         public static Action<Transform> OnNewLevelCamera;
+        public static Action<List<FloorCel>> OnCurrentFloors;
     }
 }
