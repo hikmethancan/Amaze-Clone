@@ -326,11 +326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5658712384644726582}
-  hitParticle: {fileID: 0}
+  hitParticle: {fileID: 8167785344557383802}
+  trailParticleSystem: {fileID: 686249839057497515}
   playerMoveDuration: 0.15
-  modelX: {fileID: 0}
-  modelY: {fileID: 0}
-  model1: {fileID: 1292683584718896034}
+  sphereModel: {fileID: 1292683584718896034}
 --- !u!114 &2982112270909055265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835998226599379520, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 2835998226599379520, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
       propertyPath: m_LocalRotation.w
@@ -560,6 +559,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6486312804789363483, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 6486312804789363483, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -568,6 +575,11 @@ PrefabInstance:
 --- !u!4 &866576804728381729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2835998226599379520, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
+  m_PrefabInstance: {fileID: 3124880626976924513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8167785344557383802 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6486312804789363483, guid: 27eb05d768e857c498eb27adb6ec3772, type: 3}
   m_PrefabInstance: {fileID: 3124880626976924513}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7291623292054406779
@@ -622,11 +634,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovementTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 7833730454303730640, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833730454303730640, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7879016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833730454303730640, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833730454303730640, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+--- !u!198 &686249839057497515 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7833730454303730640, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}
+  m_PrefabInstance: {fileID: 7291623292054406779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8544405532478496057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1414938765937171266, guid: 48c3263eefaef5e4d9fa5d3277881736, type: 3}

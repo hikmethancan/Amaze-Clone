@@ -9,12 +9,10 @@ namespace Concrete.Managers
 {
     public class UIManager : Singleton<UIManager>
     {
-        [SerializeField] private GameObject successPanel;
         [SerializeField] private TMP_Text levelText;
 
         private void OnEnable()
         {
-            successPanel.SetActive(false);
             GameControl.OnChangeGameState += AfterTheSuccess;
             SetLevelText();
         }
@@ -47,7 +45,6 @@ namespace Concrete.Managers
         private void CloseSuccessPanel()
         {
             GameControl.OnChangeGameState?.Invoke(GameState.Playing);
-            successPanel.SetActive(false);
         }
     }
 }

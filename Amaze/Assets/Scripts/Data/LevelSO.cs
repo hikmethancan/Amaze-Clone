@@ -40,7 +40,7 @@ namespace Data
 
             EditorGUI.DrawRect(rect.Padding(1),
                 value
-                    ? new Color(0.1f, 0.8f, 0.2f)
+                    ? new Color(1f, 0, 0)
                     : new Color(0, 0, 0, 0.5f));
             return value;
         }
