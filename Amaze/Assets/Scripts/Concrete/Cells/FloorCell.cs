@@ -1,12 +1,20 @@
-﻿using Abstract.Interfaces;
+﻿using System;
+using Abstract.Interfaces;
 using UnityEngine;
 
 namespace Concrete.Cells
 {
     public class FloorCel : Cell,IInteractable
     {
-        public Color interactedColor;
+
+        [SerializeField] private Material baseMat;
+        [SerializeField] private Material coloredMat;
         public bool IsInteracted { get; set; }
+
+        private void OnEnable()
+        {
+            meshRenderer.material = baseMat;
+        }
 
         public void Interact()
         {
@@ -15,7 +23,7 @@ namespace Concrete.Cells
         }
         private void ChangeColor()
         {
-            meshRenderer.material.color = interactedColor;
+            meshRenderer.material = coloredMat;
         }
         
         

@@ -31,7 +31,9 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Cinemachine
+    - PPv2URPConverters
     - Assembly-CSharp-firstpass
+    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

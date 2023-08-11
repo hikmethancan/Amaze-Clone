@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using Abstract.Enums;
-using Abstract.Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -14,7 +11,7 @@ namespace Concrete.Cells
         public int[,] cellIdReference = new int[0,0];
         
         [Header("References")]
-        public SkinnedMeshRenderer meshRenderer;
+        public MeshRenderer meshRenderer;
 
         public bool IsInteracted { get; set; }
 
