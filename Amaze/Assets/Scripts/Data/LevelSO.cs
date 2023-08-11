@@ -27,6 +27,7 @@ namespace Data
         [Header("Values")] [SerializeField] private int cellRow;
         [SerializeField] private int cellCol;
         [SerializeField] private List<GameObject> allCellObjects;
+  
 
         private static bool DrawCell(Rect rect, bool value)
         {
