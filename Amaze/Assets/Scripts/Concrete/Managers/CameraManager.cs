@@ -10,12 +10,12 @@ namespace Concrete.Managers
         public Camera mainCamera;
         private void OnEnable()
         {
-            GameControl.OnNewLevelCamera += HandleCamera;
+            // GameControl.OnNewLevelCamera += HandleCamera;
         }
 
         private void OnDisable()
         {
-            GameControl.OnNewLevelCamera -= HandleCamera;
+            // GameControl.OnNewLevelCamera -= HandleCamera;
         }
 
         private void HandleCamera(Transform levelTransform)

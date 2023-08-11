@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Concrete.Cells;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using UnityEditor;
 using UnityEngine;
 
 namespace Data
@@ -12,20 +14,35 @@ namespace Data
         [TableMatrix(SquareCells = true, RespectIndentLevel = true,
             HideColumnIndices = true, HideRowIndices = true, RowHeight = 1)]
         private int[,] _cells;
-        
+
 
         [TableMatrix(SquareCells = true, RespectIndentLevel = true,
-            HideColumnIndices = true, HideRowIndices = true, RowHeight = 1)]
+            HideColumnIndices = true, HideRowIndices = true, RowHeight = 1, DrawElementMethod = "DrawCell")]
         public bool[,] _cellBool;
 
-        public List<FloorCel> FloorCels;
+        public List<FloorCel> FloorCels { get; set; }
 
         [SerializeField] private FloorCel floorCell;
         [SerializeField] private ObstacleCell obstacleCell;
         [Header("Values")] [SerializeField] private int cellRow;
         [SerializeField] private int cellCol;
         [SerializeField] private List<GameObject> allCellObjects;
-        
+
+        private static bool DrawCell(Rect rect, bool value)
+        {
+            if (Event.current.type == EventType.MouseDown && rect.Contains(Event.current.mousePosition))
+            {
+                value = !value;
+                GUI.changed = true;
+                Event.current.Use();
+            }
+
+            EditorGUI.DrawRect(rect.Padding(1),
+                value
+                    ? new Color(0.1f, 0.8f, 0.2f)
+                    : new Color(0, 0, 0, 0.5f));
+            return value;
+        }
 
         [OnInspectorInit]
         private void SetCells()
@@ -53,7 +70,7 @@ namespace Data
                 }
             }
         }
-        
+
 
         [Button]
         public void LoadCellData()
@@ -80,13 +97,13 @@ namespace Data
                     // Every border and edges have to be obstacle
                     if (_cellBool[x, y])
                     {
-                        newCell = Instantiate(obstacleCell, obstacleCellPos, Quaternion.identity,parent);
+                        newCell = Instantiate(obstacleCell, obstacleCellPos, Quaternion.identity, parent);
                         allCellObjects.Add(newCell.gameObject);
                     }
                     else
                     {
-                        newCell = Instantiate(floorCell, floorCellPos, Quaternion.identity,parent);
-                        FloorCels.Add((FloorCel)newCell);
+                        newCell = Instantiate(floorCell, floorCellPos, Quaternion.identity, parent);
+                        FloorCels.Add((FloorCel) newCell);
                         allCellObjects.Add(newCell.gameObject);
                     }
                     // Set the instantiated cell in cells[,] arrays position
@@ -112,6 +129,7 @@ namespace Data
             {
                 DestroyImmediate(cell);
             }
+
             allCellObjects.Clear();
             LoadCellData();
         }

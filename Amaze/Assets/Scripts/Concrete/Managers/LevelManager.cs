@@ -11,8 +11,10 @@ namespace Concrete.Managers
     public class LevelManager : Singleton<LevelManager>
     {
         [SerializeField] private List<LevelGenerator> levels;
+       
+        public List<FloorCel> currentFloor;
+        
         private int _currentLevel;
-        public List<FloorCel> _currentFloor;
 
         private void OnEnable()
         {
@@ -29,9 +31,13 @@ namespace Concrete.Managers
             GameControl.OnChangeGameState -= ChangeLevel;
             GameControl.OnCurrentFloors -= NewFloor;
         }
+        private void Start()
+        {
+            _currentLevel = ES3.Load<int>("level", 1);
+        }
         private void NewFloor(List<FloorCel> obj)
         {
-            _currentFloor = obj;
+            currentFloor = obj;
             LoadLevel(_currentLevel-1);
         }
         private void ChangeLevel(GameState state)
@@ -57,8 +63,7 @@ namespace Concrete.Managers
                 if (i == index)
                 {
                     levels[i].gameObject.SetActive(true);
-                    _currentFloor = levels[i].levelData.FloorCels;
-                    GameControl.OnNewLevelCamera?.Invoke(levels[i].transform);
+                    currentFloor = levels[i].levelData.FloorCels;
                     Debug.Log(levels[i].transform);
                 }
                 else
@@ -70,14 +75,13 @@ namespace Concrete.Managers
         private IEnumerator CellSuccessControl()
         {
             yield return new WaitUntil(() => GameManager.Instance.gameState == GameState.Playing);
-            yield return new WaitUntil(() => _currentFloor.All(cell => cell.IsInteracted));
+            yield return new WaitUntil(() => currentFloor.All(cell => cell.IsInteracted));
             Debug.Log("All Cells Completed");
             GameControl.OnChangeGameState?.Invoke(GameState.Success);
+            yield return new WaitForSeconds(1.5f);
+            GameControl.OnChangeGameState?.Invoke(GameState.Playing);
         }
 
-        private void Start()
-        {
-            _currentLevel = ES3.Load<int>("level", 1);
-        }
+        
     }
 }

@@ -38,17 +38,13 @@ namespace Concrete.Managers
 
         private void OpenSuccessPanel(GameState state)
         {
-            if (state != GameState.Success) return;
-            // successPanel.transform.localScale = Vector3.zero;
-            successPanel.SetActive(true);
-            // successPanel.transform.DOScale(Vector3.one, .5f).SetEase(Ease.Linear);
+            // if (state != GameState.Success) return;
+            // successPanel.SetActive(true);
         }
 
         private void CloseSuccessPanel()
         {
             GameControl.OnChangeGameState?.Invoke(GameState.Playing);
-            GameControl.OnGameStart?.Invoke();
-            GameManager.Instance.gameState = GameState.Playing;
             successPanel.SetActive(false);
         }
     }

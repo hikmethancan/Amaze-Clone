@@ -21,8 +21,7 @@ namespace Concrete.Managers
 
         private void ChangeState(GameState state)
         {
-            if (state == GameState.Success)
-                gameState = GameState.Success;
+            gameState = state;
         }
     }
 }
