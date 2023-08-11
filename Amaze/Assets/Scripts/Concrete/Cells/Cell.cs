@@ -16,7 +16,5 @@ namespace Concrete.Cells
         public bool IsInteracted { get; set; }
 
         private Material _tempMaterial;
-        
-        
     }
 }
