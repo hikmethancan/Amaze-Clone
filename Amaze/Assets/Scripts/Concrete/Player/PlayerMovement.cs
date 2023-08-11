@@ -78,13 +78,13 @@ namespace Concrete.Player
             {
                 _moveSequence.Pause();
             }
-
-            _moveSequence = DOTween.Sequence();
-            _moveSequence.Append(transform.DOMove(movementPos, playerMoveDuration).SetEase(Ease.Linear)).AppendCallback(() =>
-            {
-                hitParticle.Play();
-                sphereModel.transform.DOScale(new Vector3(1, 1, 1), playerMoveDuration / 3);
-            });
+            transform.Translate(Vector3.one);
+            // _moveSequence = DOTween.Sequence();
+            // _moveSequence.Append(transform.DOMove(movementPos, playerMoveDuration).SetEase(Ease.Linear)).AppendCallback(() =>
+            // {
+            //     hitParticle.Play();
+            //     sphereModel.transform.DOScale(new Vector3(1, 1, 1), playerMoveDuration / 3);
+            // });
         }
     }
 }
