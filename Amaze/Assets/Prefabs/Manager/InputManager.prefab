@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ff71e4c03b1ab44a988696294ff572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadZone: 0.5

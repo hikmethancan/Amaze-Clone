@@ -15,19 +15,20 @@ namespace Concrete.Managers
         private void OnEnable()
         {
             successPanel.SetActive(false);
-            GameControl.OnChangeGameState += OpenSuccessPanel;
+            GameControl.OnChangeGameState += AfterTheSuccess;
+            SetLevelText();
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            GameControl.OnChangeGameState -= OpenSuccessPanel;
+            GameControl.OnChangeGameState -= AfterTheSuccess;
             SetLevelText();
         }
 
         private void SetLevelText()
         {
-            levelText.SetText(ES3.Load<int>("level",1).ToString());
+            levelText.SetText("Level "+ES3.Load<int>("level",1));
         }
 
         public void NextLevel()
@@ -36,8 +37,9 @@ namespace Concrete.Managers
             SetLevelText();
         }
 
-        private void OpenSuccessPanel(GameState state)
+        private void AfterTheSuccess(GameState state)
         {
+            SetLevelText();
             // if (state != GameState.Success) return;
             // successPanel.SetActive(true);
         }

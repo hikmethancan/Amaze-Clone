@@ -4,6 +4,7 @@ using System.Linq;
 using Abstract.Base_Template;
 using Abstract.Base_Template.enums;
 using Concrete.Cells;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Concrete.Managers
@@ -64,7 +65,6 @@ namespace Concrete.Managers
                 {
                     levels[i].gameObject.SetActive(true);
                     currentFloor = levels[i].levelData.FloorCels;
-                    Debug.Log(levels[i].transform);
                 }
                 else
                     levels[i].gameObject.SetActive(false);
@@ -78,10 +78,8 @@ namespace Concrete.Managers
             yield return new WaitUntil(() => currentFloor.All(cell => cell.IsInteracted));
             Debug.Log("All Cells Completed");
             GameControl.OnChangeGameState?.Invoke(GameState.Success);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             GameControl.OnChangeGameState?.Invoke(GameState.Playing);
         }
-
-        
     }
 }

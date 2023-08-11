@@ -24,7 +24,8 @@ namespace Concrete.Player
         private GameObject modelY;
 
         [SerializeField] private GameObject model1;
-        public bool canMove = true;
+        
+        private Sequence _moveSequence;
 
         private void OnEnable()
         {
@@ -42,20 +43,16 @@ namespace Concrete.Player
             GameControl.OnInputType += HandleInput;
         }
 
-       private  void UnSubEvents()
+        private void UnSubEvents()
         {
             GameControl.OnChangeGameState -= ChangeState;
             GameControl.OnInputType -= HandleInput;
         }
-
-        private void Start()
-        {
-            canMove = true;
-        }
+        
 
         private void HandleInput(InputType input)
         {
-            if(GameManager.Instance.gameState != GameState.Playing) return;
+            if (GameManager.Instance.gameState != GameState.Playing) return;
             if (input == InputType.Down || input == InputType.Up)
                 model1.transform.DOScaleY(1.7f, playerMoveDuration / 5).SetEase(Ease.Linear);
             else
@@ -66,7 +63,15 @@ namespace Concrete.Player
         {
             if (state == GameState.Success)
             {
-                transform.DOMove(new Vector3(1, 1, transform.position.z), .1f).SetEase(Ease.Flash);
+                if (_moveSequence.IsActive())
+                {
+                    _moveSequence.Pause();
+                }
+
+                _moveSequence = DOTween.Sequence();
+                model1.transform.DOScale(Vector3.one, .1f).SetEase(Ease.Flash);
+                _moveSequence.Append(transform.DOMove(new Vector3(1, 1, transform.position.z), .1f)
+                    .SetEase(Ease.Flash));
                 Debug.Log("Player Succes Event");
             }
         }
@@ -74,11 +79,14 @@ namespace Concrete.Player
         public void Move(Vector3 movementPos)
         {
             if (GameManager.Instance.gameState != GameState.Playing) return;
-            if (!canMove) return;
-            canMove = false;
-            transform.DOMove(movementPos, playerMoveDuration).SetEase(Ease.Linear).OnComplete(() =>
+            if (_moveSequence.IsActive())
             {
-                canMove = true;
+                _moveSequence.Pause();
+            }
+
+            _moveSequence = DOTween.Sequence();
+            _moveSequence.Append(transform.DOMove(movementPos, playerMoveDuration).SetEase(Ease.Linear)).AppendCallback(() =>
+            {
                 model1.transform.DOScale(new Vector3(1, 1, 1), playerMoveDuration / 3);
             });
         }
