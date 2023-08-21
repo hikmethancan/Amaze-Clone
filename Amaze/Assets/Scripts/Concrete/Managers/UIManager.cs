@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Concrete.Managers
 {
-    public class UIManager : Singleton<UIManager>
+    public class UIManager : MonoBehaviour
     {
         [SerializeField] private TMP_Text levelText;
 
@@ -17,9 +17,8 @@ namespace Concrete.Managers
             SetLevelText();
         }
 
-        protected override void OnDisable()
+        private  void OnDisable()
         {
-            base.OnDisable();
             GameControl.OnChangeGameState -= AfterTheSuccess;
             SetLevelText();
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Concrete.Managers
 {
-    public class InputManager : Singleton<InputManager>
+    public class InputManager : MonoBehaviour
     {
         [SerializeField] private float deadZone;
         private Vector3 _initialMousePosition;
