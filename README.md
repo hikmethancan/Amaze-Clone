@@ -1,5 +1,5 @@
 
-#  <h1>Gybe Games Case</h1>
+#  <h1>Amaze Clone</h1>
 
 ## Assets Used in The Project
 
